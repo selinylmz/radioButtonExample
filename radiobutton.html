@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Button Basic Example</title>
+
+</head>
+
+<body>
+    <div class="form-group">
+        <input type="radio" name="gender" class="form-control" id="kadin" value="kadin">
+        <label for="kadin">Kadin</label>
+        <input type="radio" name="gender" class="form-control" id="erkek" value="erkek">
+        <label for="erkek">Erkek</label>
+        
+      </div>
+      <div class="form-group">
+        <input type="radio" name="condition" class="form-control" id="evli" value="evli">
+        <label for="evli">Evli</label>
+        <input type="radio" name="condition" class="form-control" id="bekar" value="bekar">
+        <label for="bekar">Bekar</label>
+        <input type="radio" name="condition" class="form-control" id="bosandim" value="bosandim">
+        <label for="bosandim">Bosandim</label>
+        
+      </div>
+ 
+   
+    <div id="soru1" hidden>
+        <p>
+            Evlendikten sonra kimlikteki tam adınız
+        </p>
+        
+    </div>
+    <div id="soru2" hidden>
+        <p>
+            Erkek ve evli
+        </p>
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('input[name=gender],input[name="condition"]').on('click', function () {
+                $('#soru1,#soru2').hide();
+                var selectedValueGender = $('input[name=gender]:checked').val();
+                var selectedValueCondition = $('input[name=condition]:checked').val();
+                selectedValueGender == "kadin" && selectedValueCondition == "evli"&& $('#soru1').show();
+                selectedValueGender == "erkek" && selectedValueCondition == "evli" && $('#soru2').show();
+
+                // if (selectedValueGender == "kadin" && selectedValueCondition == "evli") {
+                //    $('#soru1').show();
+                // } else if (selectedValueGender == "erkek" && selectedValueCondition == "evli") {
+                //     $('#soru2').show();
+                // } else {
+                //     $('#soru1').hide();
+                //     $('#soru2').hide();
+                //  }
+            })
+
+        })
+    </script>
+
+</body>
+
+</html>
